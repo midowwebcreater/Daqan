@@ -2,213 +2,124 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>DAQAN Official Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DAQAN Avocado Night Cream</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#fff;color:#1d1d1f;overflow-x:hidden}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#ffffff;color:#111;}
 
-/* ===== GLOBAL ===== */
-section{padding:120px 24px}
-.container{max-width:1200px;margin:auto}
-
-/* ===== HEADER ===== */
+/* HEADER */
 header{
-position:fixed;
-top:0;width:100%;
-background:rgba(255,255,255,.8);
-backdrop-filter:blur(14px);
-border-bottom:1px solid #eee;
-z-index:2000;
+  padding:15px 20px;
+  border-bottom:1px solid #eee;
+  position:sticky;top:0;background:#fff;z-index:100;
 }
-header .container{
-display:flex;justify-content:space-between;align-items:center;
-padding:18px 24px;
-}
-header h1{font-size:18px;font-weight:500;letter-spacing:2px}
+header h1{font-weight:600;font-size:22px;}
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
-padding-top:160px;
-text-align:center;
+  padding:50px 20px;
+  text-align:center;
 }
-.hero h2{
-font-size:48px;
-font-weight:600;
-letter-spacing:-0.5px;
-}
-.hero p{
-margin-top:16px;
-font-size:18px;
-color:#6e6e73;
-}
-.hero img{
-width:280px;
-margin-top:60px;
-transition:transform .6s ease, filter .6s ease, opacity .6s ease;
-will-change:transform,filter,opacity;
-}
-.blur-active{
-filter:blur(8px);
-transform:scale(.95) translateY(-12px);
-opacity:.85;
-}
-.cta{
-margin-top:48px;
-display:inline-block;
-padding:14px 38px;
-background:#1d1d1f;
-color:#fff;
-border-radius:40px;
-text-decoration:none;
-font-size:15px;
+.hero h2{font-size:34px;font-weight:600;}
+.hero p{margin-top:10px;color:#555;}
+.hero button{
+  margin-top:20px;
+  padding:12px 30px;
+  border:none;
+  background:#000;
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;
 }
 
-/* ===== GLASS SECTION ===== */
-.glass{
-background:rgba(255,255,255,.7);
-backdrop-filter:blur(18px);
-border-radius:28px;
-border:1px solid #eee;
+/* PRODUCTS */
+.products{
+  padding:40px 20px;
+}
+.products h3{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:30px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+.card{
+  border:1px solid #eee;
+  padding:15px;
+  transition:.3s;
+}
+.card:hover{transform:translateY(-5px);}
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+.card h4{margin:10px 0;font-weight:500;}
+.card p{font-size:14px;color:#666;}
+.price{font-weight:600;margin:8px 0;}
+.card button{
+  width:100%;
+  padding:10px;
+  border:none;
+  background:#000;
+  color:#fff;
+  cursor:pointer;
 }
 
-/* ===== BENEFITS ===== */
-.benefits{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,.6);
+  justify-content:center;align-items:center;
 }
-.benefit{
-padding:36px;
-border:1px solid #eee;
-border-radius:24px;
-background:#fff;
+.modal-content{
+  background:#fff;
+  width:90%;
+  max-width:400px;
+  padding:20px;
 }
-.benefit h4{font-size:16px;margin-bottom:8px}
-.benefit p{font-size:14px;color:#6e6e73}
-
-/* ===== GALLERY ===== */
-.gallery{
-display:flex;
-gap:24px;
-overflow-x:auto;
-padding-bottom:12px;
+.modal-content h4{margin-bottom:10px;}
+.modal-content input,textarea{
+  width:100%;
+  margin-bottom:10px;
+  padding:10px;
+  border:1px solid #ccc;
 }
-.gallery img{
-width:240px;
-border-radius:24px;
-border:1px solid #eee;
-}
-
-/* ===== PRODUCT ===== */
-.product{
-margin-top:60px;
-padding:60px;
-border:1px solid #eee;
-border-radius:32px;
-text-align:center;
-}
-.product h3{
-font-size:32px;
-font-weight:600;
-}
-.product p{
-margin-top:12px;
-font-size:16px;
-color:#6e6e73;
-}
-.actions{
-margin-top:36px;
-}
-.actions button{
-padding:14px 34px;
-border-radius:40px;
-font-size:15px;
-cursor:pointer;
-border:none;
-}
-.buy{
-background:#1d1d1f;
-color:#fff;
-}
-.cart{
-background:#fff;
-border:1px solid #1d1d1f;
-color:#1d1d1f;
-margin-left:12px;
+.modal-content button{
+  width:100%;
+  padding:12px;
+  border:none;
+  background:#000;
+  color:#fff;
 }
 
-/* ===== CART TOAST ===== */
-.toast{
-position:fixed;
-bottom:100px;
-right:24px;
-background:#1d1d1f;
-color:#fff;
-padding:14px 22px;
-border-radius:12px;
-display:none;
+/* OFFER POPUP */
+.offer{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#000;
+  color:#fff;
+  padding:15px;
+  font-size:14px;
 }
 
-/* ===== OFFER POPUP ===== */
-.popup{
-position:fixed;
-top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,.45);
-display:none;
-align-items:center;justify-content:center;
-z-index:3000;
-}
-.popup-box{
-background:#fff;
-padding:48px;
-border-radius:28px;
-max-width:400px;
-text-align:center;
-}
-.popup-box h2{
-font-size:28px;
-font-weight:600;
-}
-.popup-box p{
-margin-top:12px;
-font-size:15px;
-color:#6e6e73;
-}
-.popup-box button{
-margin-top:28px;
-padding:14px 36px;
-border:none;
-background:#1d1d1f;
-color:#fff;
-border-radius:40px;
-cursor:pointer;
-}
-
-/* ===== WHATSAPP ===== */
-.whatsapp{
-position:fixed;
-bottom:24px;
-right:24px;
-background:#25D366;
-color:#fff;
-padding:14px 20px;
-border-radius:50px;
-text-decoration:none;
-font-size:14px;
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
-padding:60px 24px;
-text-align:center;
-font-size:13px;
-color:#6e6e73;
-border-top:1px solid #eee;
-margin-top:120px;
+  padding:20px;
+  text-align:center;
+  border-top:1px solid #eee;
+  font-size:13px;
+  color:#555;
 }
 </style>
 </head>
@@ -216,109 +127,92 @@ margin-top:120px;
 <body>
 
 <header>
-<div class="container">
-<h1>DAQAN</h1>
-</div>
+  <h1>DAQAN</h1>
 </header>
 
-<!-- HERO -->
-<div class="hero">
-<h2>Avocado Night Cream</h2>
-<p>Apply at night. Leave overnight. Wake up glowing.</p>
-<img src="p1.jpg" id="heroProduct">
-<a class="cta" href="#product">Buy Now</a>
-</div>
-
-<!-- BENEFITS -->
-<section>
-<div class="container glass">
-<div class="benefits">
-<div class="benefit">
-<h4>Brightening Care</h4>
-<p>Supports natural glow overnight</p>
-</div>
-<div class="benefit">
-<h4>Even Skin Tone</h4>
-<p>Helps improve skin clarity</p>
-</div>
-<div class="benefit">
-<h4>Dark Spot Support</h4>
-<p>Targets dull-looking skin</p>
-</div>
-<div class="benefit">
-<h4>Overnight Nourishment</h4>
-<p>Works while you sleep</p>
-</div>
-</div>
-</div>
+<section class="hero">
+  <h2>Premium Night Care</h2>
+  <p>Calm • Clear • Confident Skin</p>
+  <button onclick="scrollToProducts()">Shop Now</button>
 </section>
 
-<!-- GALLERY -->
-<section>
-<div class="container">
-<div class="gallery">
-<img src="p1.jpg">
-<img src="p2.jpg">
-<img src="p3.jpg">
-</div>
-</div>
+<section class="products" id="products">
+  <h3>Our Products</h3>
+  <div class="grid">
+
+    <div class="card">
+      <img src="pimple.jpg">
+      <h4>Pimple Night Cream</h4>
+      <p>Helps reduce pimples & acne marks</p>
+      <div class="price">₹499</div>
+      <button onclick="openForm('Pimple Night Cream')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="rice.jpg">
+      <h4>Rice Water Night Cream</h4>
+      <p>Brightening & even skin tone</p>
+      <div class="price">₹499</div>
+      <button onclick="openForm('Rice Water Night Cream')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <img src="avocado.jpg">
+      <h4>Avocado Night Cream</h4>
+      <p>Deep nourishment & repair</p>
+      <div class="price">₹499</div>
+      <button onclick="openForm('Avocado Night Cream')">Buy Now</button>
+    </div>
+
+  </div>
 </section>
 
-<!-- PRODUCT -->
-<section id="product">
-<div class="container">
-<div class="product">
-<h3>DAQAN Avocado Night Cream</h3>
-<p>25g • Made in India</p>
-<div class="actions">
-<button class="buy" onclick="buyNow()">Buy Now</button>
-<button class="cart" onclick="addCart()">Add to Cart</button>
+<!-- FORM MODAL -->
+<div class="modal" id="orderModal">
+  <div class="modal-content">
+    <h4 id="productName"></h4>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="tel" id="phone" placeholder="Phone Number">
+    <textarea id="address" placeholder="Full Address"></textarea>
+    <button onclick="sendWhatsApp()">Place Order</button>
+  </div>
 </div>
+
+<div class="offer">
+  🎉 Flat 10% OFF – Limited Time
 </div>
-</div>
-</section>
 
 <footer>
-© 2025 DAQAN Skincare. All rights reserved.
+  © 2026 DAQAN. All Rights Reserved.
 </footer>
 
-<div class="toast" id="toast">Added to cart</div>
-
-<div class="popup" id="popup">
-<div class="popup-box">
-<h2>Special Offer</h2>
-<p>Limited-time premium offer available today</p>
-<button onclick="buyNow()">Continue</button>
-</div>
-</div>
-
-<a class="whatsapp" href="https://wa.me/919115242359?text=I%20want%20to%20order%20DAQAN%20Avocado%20Night%20Cream" target="_blank">
-WhatsApp
-</a>
-
 <script>
-const hero=document.getElementById('heroProduct');
-window.addEventListener('scroll',()=>{
-if(window.scrollY>140){
-hero.classList.add('blur-active');
-}else{
-hero.classList.remove('blur-active');
-}
-});
+let selectedProduct = "";
 
-function addCart(){
-const t=document.getElementById('toast');
-t.style.display='block';
-setTimeout(()=>{t.style.display='none'},2200);
+function openForm(product){
+  selectedProduct = product;
+  document.getElementById("productName").innerText = product;
+  document.getElementById("orderModal").style.display="flex";
 }
 
-function buyNow(){
-window.open("https://wa.me/919115242359?text=I%20want%20to%20order%20DAQAN%20Avocado%20Night%20Cream","_blank");
+function sendWhatsApp(){
+  let name=document.getElementById("name").value;
+  let phone=document.getElementById("phone").value;
+  let address=document.getElementById("address").value;
+
+  let msg=`Order Details:%0AProduct: ${selectedProduct}%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}`;
+  window.open(`https://wa.me/919999999999?text=${msg}`);
 }
 
-setTimeout(()=>{
-document.getElementById('popup').style.display='flex';
-},7000);
+function scrollToProducts(){
+  document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+
+window.onclick=function(e){
+  if(e.target==document.getElementById("orderModal")){
+    document.getElementById("orderModal").style.display="none";
+  }
+}
 </script>
 
 </body>
