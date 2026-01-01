@@ -9,45 +9,44 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{
-background:#000;
-color:#fff;
-overflow-x:hidden;
-}
+body{background:#000;color:#fff;overflow-x:hidden}
 
-/* ANIMATIONS */
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(40px)}
-to{opacity:1;transform:none}
-}
+/* ===== ANIMATIONS ===== */
 @keyframes float3d{
 0%{transform:translateY(0) rotateX(0)}
-50%{transform:translateY(-12px) rotateX(4deg)}
+50%{transform:translateY(-16px) rotateX(6deg)}
 100%{transform:translateY(0) rotateX(0)}
 }
+.reveal{
+opacity:0;
+transform:translateY(60px) rotateX(12deg);
+transition:1s cubic-bezier(.19,1,.22,1);
+}
+.reveal.active{
+opacity:1;
+transform:none;
+}
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
 padding:18px 22px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid rgba(255,255,255,0.1);
+border-bottom:1px solid rgba(255,255,255,.1);
 }
 header h1{
+letter-spacing:3px;
 font-size:20px;
-letter-spacing:2px;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
-padding:70px 22px 40px;
+padding:80px 22px 50px;
 text-align:center;
-animation:fadeUp 1s ease;
 }
 .hero h2{
-font-size:34px;
-font-weight:600;
+font-size:36px;
 letter-spacing:1px;
 }
 .hero p{
@@ -60,47 +59,43 @@ width:260px;
 margin:40px auto 0;
 display:block;
 animation:float3d 4s infinite ease-in-out;
-filter:drop-shadow(0 40px 60px rgba(255,255,255,0.15));
+filter:drop-shadow(0 50px 70px rgba(255,255,255,.2));
 }
-
-/* CTA */
 .cta{
-margin-top:30px;
+margin-top:32px;
 display:inline-block;
-padding:14px 36px;
+padding:14px 40px;
 border:1px solid #fff;
 border-radius:40px;
-text-decoration:none;
 color:#fff;
-font-size:14px;
+text-decoration:none;
 }
 
-/* SECTION */
+/* ===== SECTIONS ===== */
 section{
-padding:70px 22px;
+padding:80px 22px;
 }
 .section-title{
 text-align:center;
-margin-bottom:40px;
 font-size:24px;
-letter-spacing:1px;
+letter-spacing:2px;
+margin-bottom:40px;
 }
 
-/* BENEFITS */
+/* ===== BENEFITS ===== */
 .benefits{
 display:grid;
 grid-template-columns:1fr;
 gap:20px;
 }
 .benefit{
-border:1px solid rgba(255,255,255,0.15);
-padding:22px;
-border-radius:18px;
+border:1px solid rgba(255,255,255,.15);
+padding:26px;
+border-radius:20px;
 text-align:center;
-animation:fadeUp 1s ease;
 }
 
-/* GALLERY */
+/* ===== GALLERY ===== */
 .gallery{
 display:flex;
 gap:18px;
@@ -109,27 +104,25 @@ scroll-snap-type:x mandatory;
 }
 .gallery img{
 width:220px;
-flex-shrink:0;
 border-radius:18px;
 scroll-snap-align:center;
 filter:grayscale(100%);
 transition:.5s;
 }
 .gallery img:hover{
-filter:grayscale(0%);
-transform:scale(1.05);
+filter:grayscale(0);
+transform:scale(1.08);
 }
 
-/* PRODUCT CARD */
+/* ===== PRODUCT CARD ===== */
 .product{
-border:1px solid rgba(255,255,255,0.15);
-border-radius:26px;
-padding:40px 26px;
+border:1px solid rgba(255,255,255,.15);
+border-radius:30px;
+padding:50px 28px;
 text-align:center;
-animation:fadeUp 1.2s ease;
 }
 .product h3{
-font-size:26px;
+font-size:28px;
 letter-spacing:1px;
 }
 .product p{
@@ -137,32 +130,94 @@ margin:14px 0;
 font-size:14px;
 opacity:.8;
 }
-.product a{
+.btn{
 margin-top:22px;
 display:inline-block;
 padding:14px 38px;
 border-radius:40px;
+border:none;
+cursor:pointer;
+font-size:15px;
+}
+.buy{
 background:#fff;
 color:#000;
-text-decoration:none;
-font-weight:500;
+}
+.cart{
+background:transparent;
+border:1px solid #fff;
+color:#fff;
+margin-left:10px;
 }
 
-/* WHATSAPP */
+/* ===== CART ===== */
+.cart-box{
+position:fixed;
+bottom:90px;
+right:22px;
+background:#111;
+border:1px solid rgba(255,255,255,.15);
+padding:20px;
+border-radius:20px;
+display:none;
+}
+.cart-box p{
+font-size:14px;
+margin-bottom:14px;
+}
+
+/* ===== WHATSAPP ===== */
 .whatsapp{
 position:fixed;
 bottom:22px;
 right:22px;
 background:#25D366;
 color:#fff;
-padding:14px 18px;
+padding:14px 20px;
 border-radius:50px;
-font-size:14px;
 text-decoration:none;
-box-shadow:0 10px 30px rgba(0,0,0,.6);
+font-size:14px;
+box-shadow:0 12px 30px rgba(0,0,0,.6);
 }
 
-/* FOOTER */
+/* ===== OFFER POPUP ===== */
+.popup{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.7);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:3000;
+}
+.popup-box{
+background:#111;
+border:1px solid rgba(255,255,255,.2);
+padding:40px;
+border-radius:30px;
+text-align:center;
+max-width:380px;
+}
+.popup-box h2{
+font-size:26px;
+margin-bottom:12px;
+}
+.popup-box p{
+font-size:14px;
+opacity:.8;
+margin-bottom:20px;
+}
+.popup-box button{
+padding:14px 34px;
+border-radius:40px;
+border:none;
+cursor:pointer;
+background:#fff;
+color:#000;
+}
+
+/* ===== FOOTER ===== */
 footer{
 padding:40px 22px;
 text-align:center;
@@ -170,7 +225,6 @@ font-size:12px;
 opacity:.6;
 }
 
-/* DESKTOP */
 @media(min-width:900px){
 .hero img{width:320px}
 .benefits{grid-template-columns:repeat(4,1fr)}
@@ -185,17 +239,15 @@ opacity:.6;
 </header>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero reveal">
 <h2>AVOCADO<br>NIGHT CREAM</h2>
 <p>Apply at night • Leave overnight • Wake up glowing</p>
-<a class="cta" href="#product">ORDER NOW</a>
-
-<!-- MAIN PRODUCT IMAGE -->
-<img src="p1.jpg" alt="DAQAN Avocado Cream">
+<a class="cta" href="#product">BUY NOW</a>
+<img src="p1.jpg">
 </div>
 
 <!-- BENEFITS -->
-<section>
+<section class="reveal">
 <div class="section-title">WHY DAQAN</div>
 <div class="benefits">
 <div class="benefit">Brightening Care</div>
@@ -206,8 +258,8 @@ opacity:.6;
 </section>
 
 <!-- GALLERY -->
-<section>
-<div class="section-title">PRODUCT GALLERY</div>
+<section class="reveal">
+<div class="section-title">GALLERY</div>
 <div class="gallery">
 <img src="p1.jpg">
 <img src="p2.jpg">
@@ -217,14 +269,12 @@ opacity:.6;
 </section>
 
 <!-- PRODUCT -->
-<section id="product">
+<section id="product" class="reveal">
 <div class="product">
 <h3>DAQAN Avocado Night Cream</h3>
 <p>25g • Made in India</p>
-<p>Premium night skincare designed for women</p>
-<a href="https://wa.me/919115242359?text=I%20want%20to%20order%20DAQAN%20Avocado%20Night%20Cream" target="_blank">
-ORDER ON WHATSAPP
-</a>
+<button class="btn buy" onclick="buyNow()">BUY NOW</button>
+<button class="btn cart" onclick="addCart()">ADD TO CART</button>
 </div>
 </section>
 
@@ -232,9 +282,52 @@ ORDER ON WHATSAPP
 © 2025 DAQAN • Premium Skincare
 </footer>
 
+<!-- CART -->
+<div class="cart-box" id="cartBox">
+<p>✔ Product added to cart</p>
+<button class="btn buy" onclick="buyNow()">Checkout</button>
+</div>
+
+<!-- OFFER POPUP -->
+<div class="popup" id="popup">
+<div class="popup-box">
+<h2>Special Offer</h2>
+<p>Flat 20% OFF on DAQAN Avocado Night Cream</p>
+<button onclick="buyNow()">Claim Offer</button>
+<br><br>
+<button onclick="closePopup()">Close</button>
+</div>
+</div>
+
 <a class="whatsapp" href="https://wa.me/919115242359?text=I%20want%20to%20order%20DAQAN%20Avocado%20Night%20Cream" target="_blank">
 WhatsApp
 </a>
+
+<script>
+// Scroll reveal
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+reveals.forEach(r=>{
+const top=r.getBoundingClientRect().top;
+if(top<window.innerHeight-80){r.classList.add('active')}
+});
+});
+
+// Cart
+function addCart(){
+document.getElementById('cartBox').style.display='block';
+setTimeout(()=>{document.getElementById('cartBox').style.display='none'},3000);
+}
+
+// Buy
+function buyNow(){
+window.open("https://wa.me/919115242359?text=I%20want%20to%20order%20DAQAN%20Avocado%20Night%20Cream","_blank");
+}
+
+// Offer popup auto
+setTimeout(()=>{document.getElementById('popup').style.display='flex'},5000);
+function closePopup(){document.getElementById('popup').style.display='none'}
+</script>
 
 </body>
 </html>
